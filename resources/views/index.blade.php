@@ -7,12 +7,29 @@
   <title>Todoapp</title>
 </head>
 <body>
-  <h1>{{$content}}</h1>
-  <form action="/" method="POST">
-    @csrf
-    <input type="text" name="content" >
-    <input type="submit"  >
-  </form>
+  <div class="container">
+    <div class="card">
+      <p>Todo List</p>
+      <form action="/" method="POST">
+      @csrf
+      <input type="text" name="content" >
+      <input type="submit" value="追加" >
+      <tr>
+        <th>作成日</th>
+        <th>タスク名</th>
+        <th>更新</th>
+        <th>削除</th>
+      </tr>
+      @foreach($items as $item)
+      <tr>
+        <td>{{item->created/at}}</td>
+        <form action="{{route('todo.update',['id' => $item->id])}}}" method="post">
+          
+        </form>
+      </tr>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>
