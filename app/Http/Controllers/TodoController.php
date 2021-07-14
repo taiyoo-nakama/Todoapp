@@ -12,11 +12,12 @@ class TodoController extends Controller
         $items = Todo::all();
         return view('index',['items' => $items]);
     }
-    public function create(Request $request)
-    {
-        $this->validate($request,Todo::$rules);
+    public function create(Request $request){
+        $this->validate($request, Todo::$rules);
+        $todo = new Todo;
         $form = $request->all();
-        Todo::create($form);
+        unset($form['_token_']);
+        $todo->fill($form)->save();
         return redirect('/');
     }
 }
