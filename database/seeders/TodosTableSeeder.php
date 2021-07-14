@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\SUPPORT\FACADES\DB;
 use App\Models\Todo;
 
 class TodosTableSeeder extends Seeder
@@ -14,6 +15,9 @@ class TodosTableSeeder extends Seeder
      */
     public function run()
     {
-        Todo::factory()->create();
+        $param = [
+            'content' => 'taro',
+        ];
+                DB::table('todos')->insert($param);
     }
 }
