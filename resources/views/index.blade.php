@@ -10,7 +10,7 @@
   <div class="container">
     <div class="card">
       <p>Todo List</p>
-      <form action="/" method="POST">
+      <form action="/todo/create" method="post">
       @csrf
       <input type="text" name="content" >
       <input type="submit" value="追加" >
@@ -24,7 +24,7 @@
       <tr>
         <td>{{item->created/at}}</td>
         <form action="{{route('todo.update',['id' => $item->id])}}}" method="post">
-          
+
         </form>
       </tr>
     </form>
