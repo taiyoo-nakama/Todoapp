@@ -36,7 +36,20 @@
           <tr>
             <td>{{item->created_at}}</td>
             <form action="{{ route('todo.update',['id' => $item->id]) }}" method="post">
+              @csrf
+              <td>
+                <input type="text" value="{{$item->content}}" name="content" />
+              </td>
+              <td>
+                <button class="button-update">更新</button>
+              </td>
+            </form>
+            <td>
+              <form action="{{ route('todo.delete',['id' => $item->id])}}" method="post">
+                @csrf
+                <button class="button-delete">削除</button>
               </form>
+            </td>
             </tr>
             @endforeach
         </table>
