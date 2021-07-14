@@ -24,8 +24,8 @@
       <tr>
         <td>{{item->created/at}}</td>
         <form action="{{route('todo.update',['id' => $item->id])}}}" method="post">
-
-        </form>
+          </form>
+          @endforeach
       </tr>
     </form>
   </div>
