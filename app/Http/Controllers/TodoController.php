@@ -22,7 +22,8 @@ class TodoController extends Controller
     }
     public function update(Request $request)
     {
-        $this->validate($request,Todo::$reles);
+        $this->validate($request,Todo::$rules);
+        $todo = Todo::find($request->id);
         $form = $request->all();
         unset($form['_token_']);
         $todo->fill($form)->save();

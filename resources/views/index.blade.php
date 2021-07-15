@@ -34,7 +34,7 @@
           </tr>
             @foreach($items as $item)
           <tr>
-            <td>{{item->created_at}}</td>
+            <td>{{$item->created_at}}</td>
             <form action="{{ route('todo.update',['id' => $item->id]) }}" method="post">
               @csrf
               <td>
