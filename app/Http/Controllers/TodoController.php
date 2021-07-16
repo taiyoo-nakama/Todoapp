@@ -21,9 +21,9 @@ class TodoController extends Controller
     }
     public function update(Request $request)
     {
-        $this->validate($request, Todo::$rules);
+        $this->validate($request,Todo::$rules);
         $form = $request->all();
-        Todo::where('id',$request->id)->update($form);
+        Todo::find($request->id)->update($form);
         return redirect('/');
     }
     public function delete(Request $request)
